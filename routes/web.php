@@ -2,21 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeAdminController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-Route::get('/calc', [HomeAdminController::class, 'Home']);
+Route::get('/calc', [HomeAdminController::class, 'Calc']);
+// user route
+Route::get('/index', [HomeAdminController::class, 'Home']);
+Route::get('/update', [HomeAdminController::class, 'Update']);
