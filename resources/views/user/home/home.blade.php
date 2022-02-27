@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.user')
+@section('content')
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teact Laravel</title>
-</head>
+<input type="text" class="form-control" name="" id="">
 
-<body>
-    <h1>Hello, Champadev</h1>
-</body>
 
-</html>
+@endsection

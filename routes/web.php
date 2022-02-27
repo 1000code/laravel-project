@@ -1,14 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutAdminController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\HomeAdminController;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/calc', [HomeAdminController::class, 'Calc']);
-// user route
-Route::get('/index', [HomeAdminController::class, 'Home']);
-Route::get('/update', [HomeAdminController::class, 'Update']);
+
+Route::get('/about', [AboutAdminController::class, 'Index'])->name('admin.about');
+Route::get('/about/form', [AboutAdminController::class, 'Form'])->name('admin.about.form');
+Route::post('/about/store', [AboutAdminController::class, 'Store'])->name('admin.about.store');
