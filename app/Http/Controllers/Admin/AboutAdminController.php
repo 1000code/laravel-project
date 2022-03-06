@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\books;
 
 class AboutAdminController extends Controller
 {
     public function Index()
     {
-        return view('admin.about.index');
+        $data = books::all();
+        return view('admin.about.index', compact('data'));
     }
 
     public function Form()
@@ -32,5 +34,19 @@ class AboutAdminController extends Controller
                 "content.required" => "ກະລຸນາປ້ອນ ລາຍລະອຽດ",
             ]
         );
+
+
+        try {
+            $book = new books();
+
+            $book->name = $request->name;
+            $book->lastname = $request->lastname;
+            $book->content = $request->content;
+            $book->save();
+
+            return redirect()->route('admin.about')->with('success', 'ບັນທຶກຂໍ້ມູນສຳເລັດ');
+        } catch (\Throwable $th) {
+            return redirect()->route('admin.about.form')->with('error', 'ເຊື່ອມຕໍ່ຖານຂໍ້ມູນບໍ່ສຳເລັດ');
+        }
     }
 }

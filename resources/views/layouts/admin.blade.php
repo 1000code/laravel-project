@@ -12,6 +12,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" href="{{ asset('bootstrap-5/css/bootstrap.min.css') }} ">
+    <link rel="stylesheet" href="{{ asset('/css/admin.css') }} ">
 </head>
 
 <body>
@@ -46,7 +47,11 @@
 
     <!-- footer -->
 
+    <script src="{{ asset('/js/jquery.min.js') }}"></script>
+
     <script src="{{ asset('bootstrap-5/js/bootstrap.min.js') }}"></script>
+    @yield('script')
+
 </body>
 
 </html>
